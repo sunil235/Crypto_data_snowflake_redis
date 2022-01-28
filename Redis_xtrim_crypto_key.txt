@@ -1,0 +1,9 @@
+WATCH crypto 
+XLEN crypto
+MULTI
+XTRIM crypto MAXLEN <?>
+EXEC
+
+
+<?>
+/* XLEN crypto - select count(0) from crypto_stage   */ 
