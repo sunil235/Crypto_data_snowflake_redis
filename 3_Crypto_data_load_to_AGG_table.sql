@@ -41,8 +41,8 @@ on
 (
 crypto_daily_AGG.symbol = delta.crypto_symbol
 )
-when matched then update set close = delta.crypto_close,close_change=delta.crypto_change,min_close=delta.min_crypto_close,
-max_close=delta.max_crypto_close,start_time=delta.starttime,upd_time=current_timestamp,upd_nu=upd_nu+1;
+when matched then update set close = delta.crypto_close,pct_close_by_last=delta.crypto_change,min_close=delta.min_crypto_close,
+max_close=delta.max_crypto_close,starttime=delta.starttime,upd_time=current_timestamp,upd_nu=upd_nu+1;
 
 ALTER TASK IF EXISTS  load_crypto_daily_AGG RESUME;
 
