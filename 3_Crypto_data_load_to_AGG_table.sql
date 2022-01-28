@@ -4,10 +4,10 @@ create or replace table crypto_daily_AGG
 (
 symbol string,
 close double,
-close_change double,
+pct_close_by_last double,
 min_close double,
 max_close double,
-start_time timestamp, 
+starttime timestamp, 
 upd_time timestamp,
 upd_nu integer  
 ) cluster by (to_date(upd_time),symbol);
