@@ -18,7 +18,7 @@ COPY INTO "DEMO_DB"."PUBLIC"."CRYPTO_STAGE" FROM @/crypto_data FILE_FORMAT = '"D
   SYSTEM$STREAM_HAS_DATA('CRYPTO_STREAM')
   AS 
   insert into crypto_main
-  select to_timestamp_ntz(replace(crypto_data:time,',',''),'mm/dd/yyyy hh24:mi:ss') as starttime,crypto_data:crypto_name as crypto_symbol,to_double(crypto_data:close) as crypto_close,crypto_data:change as crypto_change from CRYPTO_STREAM s
+  select crypto_seq.nextval,to_timestamp_ntz(replace(crypto_data:time,',',''),'mm/dd/yyyy hh24:mi:ss') as starttime,crypto_data:crypto_name as crypto_symbol,to_double(crypto_data:close) as crypto_close,crypto_data:change as crypto_change from CRYPTO_STREAM s
    where metadata$action = 'INSERT'
     and not exists (select 1 from crypto_main m where m.starttime = to_timestamp_ntz(replace(crypto_data:time,',',''),'mm/dd/yyyy hh24:mi:ss') and m.crypto_symbol = crypto_data:crypto_name)
     ;
