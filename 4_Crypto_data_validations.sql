@@ -18,4 +18,7 @@ show streams
     task_name=>'LOAD_CRYPTO_MAIN_TABLE'));
  
  
+ --call crypto_main_unload_proc()
+--list @my_s3_unload_stage
+--remove @my_s3_unload_stage
  
