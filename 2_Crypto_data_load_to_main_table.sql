@@ -8,7 +8,7 @@ use database demo_db;
 COPY INTO "DEMO_DB"."PUBLIC"."CRYPTO_STAGE" FROM @/crypto_data FILE_FORMAT = '"DEMO_DB"."PUBLIC"."CRYPTO_JSON_FORMAT"' ON_ERROR = 'ABORT_STATEMENT' PURGE = TRUE;
 --select count(0) from "DEMO_DB"."PUBLIC"."CRYPTO_STAGE"
 
-
+--COPY INTO "MARKET_DB"."PUBLIC"."CRYPTO_MAIN" FROM '@"MARKET_DB"."PUBLIC"."MY_S3_UNLOAD_STAGE"' FILE_FORMAT = '"MARKET_DB"."PUBLIC"."MY_CSV_FILE_UNLOAD_FORMAT"' ON_ERROR = 'ABORT_STATEMENT' PURGE = FALSE;
  --Insert into main table via task
  
   create or replace task load_crypto_main_table
