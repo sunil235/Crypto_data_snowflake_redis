@@ -2,6 +2,7 @@
 use database demo_db;
 create or replace table crypto_stage
 ( 
+  redis_id string,
   crypto_data variant
 );
 
